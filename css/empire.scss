@@ -1,0 +1,16 @@
+---
+---
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+body {
+  @include transition-property (background-color);
+  @include transition-duration(1.0s);
+  @include transition-timing-function(ease-in);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "League Gothic";
+}
+

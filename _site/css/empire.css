@@ -1,0 +1,18 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  -webkit-transition-property: background-color;
+  -moz-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  transition-timing-function: ease-in; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "League Gothic"; }
