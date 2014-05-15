@@ -2,15 +2,25 @@
 ---
 
 @import "bourbon/bourbon";
+$max-width: 400px;
 @import "neat/neat";
 
 body {
-  @include transition-property (background-color);
+  @include transition-property(background-color);
   @include transition-duration(1.0s);
   @include transition-timing-function(ease-in);
+  font-family: "Helvetica Neue";
+  color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "League Gothic";
+  text-align: center;
 }
 
+#wrapper {
+  @include transition-property(background-color);
+  @include transition-duration(1.0s);
+  @include transition-timing-function(ease-in);
+  @include outer-container();
+}
