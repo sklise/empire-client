@@ -19,6 +19,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #wrapper {
+
+  @include background-image(linear-gradient(white 0, yellow 50%, transparent 50%));
+
   @include transition-property(background-color);
   @include transition-duration(1.0s);
   @include transition-timing-function(ease-in);
