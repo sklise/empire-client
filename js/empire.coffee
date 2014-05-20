@@ -6,14 +6,31 @@ $ ->
 
   # Three.js getting started
   scene = new THREE.Scene()
-  camera = new THREE.PerspectiveCamera( 75, observationDeck.width / observationDeck.height, 0.1, 1000 )
-  renderer = new THREE.WebGLRenderer()
+  camera = new THREE.PerspectiveCamera(
+    90,
+    observationDeck.offsetWidth / observationDeck.offsetHeight,
+    0.1,
+    1000
+  )
 
-  renderer.setSize( observationDeck.width, observationDeck.height )
-  document.body.appendChild( renderer.domElement )
+  renderer = new THREE.CanvasRenderer({
+    alpha: true
+  })
+
+  renderer.setSize( observationDeck.offsetWidth, observationDeck.offsetHeight )
+  observationDeck.appendChild( renderer.domElement )
 
   material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } )
-  camera.position.z = 100
+  camera.position.set(
+    0,
+    0,
+    100)
+
+  circleMaterial = new THREE.MeshBasicMaterial({color: 0xffffff})
+  circleGeom = new THREE.CircleGeometry(2, 32)
+  circle = new THREE.Mesh(circleGeom, circleMaterial)
+  circle.position.set(0,0,1)
+  scene.add(circle)
 
   render = () ->
     requestAnimationFrame(render)
@@ -25,18 +42,21 @@ $ ->
     $('body').css({
       "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
     })
+
   socket.on 'lights', (data) ->
-    # console.log data
     $('#wrapper').css({
       "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
     })
+
   socket.on 'flash', (data) ->
     console.log data
     _.each data.points, (point) ->
-      geometry = new THREE.CubeGeometry(1,1,0.25)
-      cube = new THREE.Mesh(geometry, material)
-      scene.add(cube)
-      cube.position.x = point.x
-      cube.position.y = point.y
+    point =  data.points[0]
+
+    geometry = new THREE.BoxGeometry(1,1,0.25)
+    cube = new THREE.Mesh(geometry, material)
+    scene.add(cube)
+    cube.position.x = point.x
+    cube.position.y = point.y
 
   render()
