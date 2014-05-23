@@ -19,8 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #wrapper {
-
-  @include background-image(linear-gradient(white 0, yellow 50%, transparent 50%));
+  // @include background-image(linear-gradient(white 0, yellow 50%, transparent 50%));
 
   @include transition-property(background-color);
   @include transition-duration(1.0s);
@@ -33,4 +32,83 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   position:relative;
   height: 200px;
+}
+
+#spire,
+#tier-three,
+#tier-two,
+#base {
+  display: block;
+  border: 1px solid black;
+  position: relative;
+}
+
+$base: 120px;
+$aspect: 3;
+$height: $base * 3;
+
+#spire {
+  margin-top: -($base);
+  height: $height / 2;
+  width: $base;
+  margin: 0 auto;
+}
+
+#spire-inside {
+  @include triangle($base, green, up);
+  // @include size($base $half_base);
+  -webkit-transform: scaleY($aspect);
+  -webkit-transform-origin: bottom;
+  position: absolute;
+  bottom: 0;
+}
+
+#building {
+  -webkit-perspective-origin: -18% 30%;
+  -webkit-perspective: 600px;
+  transform-style: preserve-3d;
+}
+
+#base {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 200px;
+}
+
+#base-front, #base-side {
+  @include size(300px 200px);
+  background: rgba(128,128,128,.8);
+  position: absolute;
+}
+
+#base-front {
+  -webkit-transform: translateZ(150px);
+}
+
+#base-side {
+  -webkit-transform: rotateY(-90deg) translateZ(150px);
+}
+
+$tier_two_width: 200px;
+#tier-two {
+  margin-left: auto;
+  margin-right: auto;
+  @include size($tier_two_width 200px);
+}
+
+#tier-two-front, #tier-two-side {
+  @include size(200px 200px);
+  background: rgba(128,128,128,.8);
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tier-two-front {
+  -webkit-transform: translateZ($tier_two_width/2);
+}
+
+#tier-two-side {
+  -webkit-transform: rotateY(-90deg) translateZ($tier_two_width/2);
 }
