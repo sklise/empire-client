@@ -1,6 +1,7 @@
 ---
 ---
 
+@import "normalize";
 @import "bourbon/bourbon";
 $max-width: 400px;
 @import "neat/neat";
@@ -30,8 +31,9 @@ h1, h2, h3, h4, h5, h6 {
 #observation-deck {
   display: block;
   width: 100%;
-  position:relative;
-  height: 200px;
+  position: absolute;
+  height: 100%;
+  background-color: black;
 }
 
 #spire,
@@ -64,9 +66,7 @@ $height: $base * 3;
 }
 
 #building {
-  -webkit-perspective-origin: -18% 40%;
-  -webkit-perspective: 900px;
-  transform-style: preserve-3d;
+  display: none;
 }
 
 $base_width: 300px;
