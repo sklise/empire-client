@@ -8,13 +8,13 @@ make_flash = (svg, point,start_width,start_height,end_width,end_height) ->
   new_x = mapto(point.x, 0, start_width, 0, end_width)
   new_y = mapto(point.y, 0, start_height, 0, end_height)
 
-  x = svg.ellipse(new_x, new_y, 2, 2).attr({fill: 'white'});
+  x = svg.ellipse(new_x, new_y, 2, 2).attr({ stroke: '#ffffff', 'strokeWidth': 2, fill: '#ffffff'});
   setTimeout((-> x.remove()), 1000)
 
 $ ->
   window.observationDeck = document.getElementById('observation-deck')
 
-  socket = io.connect('http://localhost:3000');
+  socket = io.connect('http://sk-empire-socket.herokuapp.com:80');
 
   deck_width = $('#observation-deck').width()
   deck_height = $('#observation-deck').height()
@@ -33,6 +33,5 @@ $ ->
 
   socket.on 'flash', (data) ->
     # _.each data.points, (point) ->
-
     point =  data.points[0]
     make_flash(s, point,data.width,data.height,deck_width,deck_height)
