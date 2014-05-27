@@ -32,6 +32,5 @@ $ ->
   s = Snap("#observation-deck")
 
   socket.on 'flash', (data) ->
-    # _.each data.points, (point) ->
     point =  data.points[0]
     make_flash(s, point,data.width,data.height,deck_width,deck_height)
