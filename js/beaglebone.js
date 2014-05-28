@@ -15,12 +15,12 @@ Cylon.robot({
     // when there is a flash, turn on the LED and and then turn it off after
     // 150 milliseconds.
     socket.on('flash', function () {
-        my.led.turnOn();
-        //after(250, my.led.turnOff)
-        setTimeout(function () {
-            console.log('timedout')
-            my.led.turnOff()
-        }, 150);
+      my.led.turnOn();
+      //after(250, my.led.turnOff)
+      setTimeout(function () {
+          console.log('timedout')
+          my.led.turnOff()
+      }, 150);
     });
   }
 }).start();

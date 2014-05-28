@@ -19,18 +19,19 @@ $ ->
   deck_width = $('#observation-deck').width()
   deck_height = $('#observation-deck').height()
 
-  socket.on 'sky', (data) ->
-    $('body').css({
-      "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
-    })
+  # socket.on 'sky', (data) ->
+  #   $('body').css({
+  #     "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
+  #   })
 
-  socket.on 'lights', (data) ->
-    $('#wrapper').css({
-      "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
-    })
+  # socket.on 'lights', (data) ->
+  #   $('#wrapper').css({
+  #     "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
+  #   })
 
   s = Snap("#observation-deck")
 
   socket.on 'flash', (data) ->
+    console.log data
     point =  data.points[0]
     make_flash(s, point,data.width,data.height,deck_width,deck_height)

@@ -3,29 +3,39 @@
 
 @import "normalize";
 @import "bourbon/bourbon";
-$max-width: 400px;
+$max-width: 900px;
 @import "neat/neat";
 
 body {
-  @include transition-property(background-color);
-  @include transition-duration(1.0s);
-  @include transition-timing-function(ease-in);
-  font-family: "Helvetica Neue";
-  color: white;
+  font-family: "Merriweather";
+  color: #414141;
+  background-color: #F8F1E8;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "League Gothic";
   text-align: center;
+  color: #823839;
+}
+
+a {
+  color: #385A82;
 }
 
 #wrapper {
-  // @include background-image(linear-gradient(white 0, yellow 50%, transparent 50%));
-
-  @include transition-property(background-color);
-  @include transition-duration(1.0s);
-  @include transition-timing-function(ease-in);
   @include outer-container();
+}
+
+
+#building {
+  @include span-columns(3);
+  position: relative;
+
+}
+
+#content {
+  @include span-columns(9);
+  @include omega();
 }
 
 #observation-deck {
@@ -65,9 +75,6 @@ $height: $base * 3;
   bottom: 0;
 }
 
-#building {
-
-}
 
 $base_width: 300px;
 #base {
