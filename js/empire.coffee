@@ -8,7 +8,13 @@ make_flash = (svg, point,start_width,start_height,end_width,end_height) ->
   new_x = mapto(point.x, 0, start_width, 0, end_width)
   new_y = mapto(point.y, 0, start_height, 0, end_height)
 
-  x = svg.ellipse(new_x, new_y, 2, 2).attr({ stroke: '#ffffff', 'strokeWidth': 2, fill: '#ffffff'});
+  f = svg.filter([Snap.filter.shadow(0,0,3,"#ECD93E"), Snap.filter.blur(2)])
+  x = svg.ellipse(new_x, new_y, 4, 4).attr({
+    stroke: '#ffffff',
+    'strokeWidth': 2,
+    fill: '#ffffff',
+    filter: f
+  });
   setTimeout((-> x.remove()), 1000)
 
 $ ->
@@ -18,16 +24,6 @@ $ ->
 
   deck_width = $('#observation-deck').width()
   deck_height = $('#observation-deck').height()
-
-  # socket.on 'sky', (data) ->
-  #   $('body').css({
-  #     "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
-  #   })
-
-  # socket.on 'lights', (data) ->
-  #   $('#wrapper').css({
-  #     "background-image": "-webkit-linear-gradient( ##{data[0]} 0, ##{data[1]} 50%)"
-  #   })
 
   s = Snap("#observation-deck")
 

@@ -3,13 +3,13 @@
 
 @import "normalize";
 @import "bourbon/bourbon";
-$max-width: 900px;
+$max-width: 1300px;
 @import "neat/neat";
 
 body {
   font-family: "Merriweather";
-  color: #414141;
-  background-color: #F8F1E8;
+  background-color: #414141;
+  color: #F8F1E8;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,6 +31,10 @@ a {
   @include span-columns(3);
   position: relative;
 
+  img {
+    max-width: 100%;
+  }
+
 }
 
 #content {
@@ -40,10 +44,12 @@ a {
 
 #observation-deck {
   display: block;
-  width: 100%;
+  width: 33.3333333333%;
+  left: 33.3333333333%;
+  top: 25%;
+  height: 2.3809524%;
   position: absolute;
-  height: 100%;
-  background-color: black;
+  background: transparent;
 }
 
 #spire,
