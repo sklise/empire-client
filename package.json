@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git://github.com/sklise/empire-client.git"
   },
+  "scripts": {
+    "watch": "watchify -t coffeeify js/empire.coffee -o js/bundle.js"
+  }
   "author": "Steve Klise",
   "license": "ISC",
   "homepage": "https://github.com/sklise/empire-client"
