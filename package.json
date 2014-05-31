@@ -1,0 +1,20 @@
+{
+  "name": "empire-client",
+  "version": "1.0.0",
+  "description": "Web site for This Is The Empire State",
+  "dependencies": {
+    "gify": "^0.2.0",
+    "suncalc": "^1.5.2"
+  },
+  "devDependencies": {
+    "coffeeify": "^0.6.0",
+    "browserify": "^4.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sklise/empire-client.git"
+  },
+  "author": "Steve Klise",
+  "license": "ISC",
+  "homepage": "https://github.com/sklise/empire-client"
+}
