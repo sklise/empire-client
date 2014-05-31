@@ -6,16 +6,28 @@
 $max-width: 1300px;
 @import "neat/neat";
 
+// Breakpoints
+$mobile: new-breakpoint(max-width 500px 4);
+
 body {
   font-family: "Merriweather";
   background-color: #414141;
   color: #F8F1E8;
 }
 
+body.daytime {
+  color: #414141;
+  background-color: #F8F1E8;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "League Gothic";
   text-align: center;
   color: #B83234;
+}
+
+h1 {
+  font-size: 4em;
 }
 
 a {
@@ -26,9 +38,9 @@ a {
   @include outer-container();
 }
 
-
 #building {
   @include span-columns(3);
+  height: 100%;
   position: relative;
 
   img {
@@ -50,103 +62,4 @@ a {
   height: 2.3809524%;
   position: absolute;
   background: transparent;
-}
-
-#spire,
-#tier-three,
-#tier-two,
-#base {
-  display: block;
-  border: 1px solid black;
-  position: relative;
-}
-
-$base: 120px;
-$aspect: 3;
-$height: $base * 3;
-
-#spire {
-  margin-top: -($base);
-  height: $height / 2;
-  width: $base;
-  margin: 0 auto;
-}
-
-#spire-inside {
-  @include triangle($base, green, up);
-  // @include size($base $half_base);
-  -webkit-transform: scaleY($aspect);
-  -webkit-transform-origin: bottom;
-  position: absolute;
-  bottom: 0;
-}
-
-
-$base_width: 300px;
-#base {
-  margin-left: auto;
-  margin-right: auto;
-  width: $base_width;
-  height: 500px;
-}
-
-#base-front, #base-side {
-  @include size($base_width 500px);
-  background: rgba(128,128,128,.8);
-  position: absolute;
-}
-
-#base-front {
-  -webkit-transform: translateZ(150px);
-}
-
-#base-side {
-  -webkit-transform: rotateY(-90deg) translateZ(150px);
-}
-
-$tier_two_width: 230px;
-#tier-two {
-  margin-left: auto;
-  margin-right: auto;
-  @include size($tier_two_width 200px);
-}
-
-#tier-two-front, #tier-two-side {
-  @include size($tier_two_width 200px);
-  background: rgba(128,128,128,.8);
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#tier-two-front {
-  -webkit-transform: translateZ($tier_two_width/2);
-}
-
-#tier-two-side {
-  -webkit-transform: rotateY(-90deg) translateZ($tier_two_width/2);
-}
-
-
-$tier_three_width: 190px;
-#tier-three {
-  margin-left: auto;
-  margin-right: auto;
-  @include size($tier_three_width 110px);
-}
-
-#tier-three-front, #tier-three-side {
-  @include size($tier_three_width 110px);
-  background: rgba(128,128,128,.8);
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#tier-three-front {
-  -webkit-transform: translateZ($tier_three_width/2);
-}
-
-#tier-three-side {
-  -webkit-transform: rotateY(-90deg) translateZ($tier_three_width/2);
 }
