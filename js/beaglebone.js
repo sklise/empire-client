@@ -4,7 +4,7 @@ var Cylon = require('cylon');
 var io = require('socket.io-client');
 
 // Connect to the socket server
-socket = io.connect('http://sk-empire-socket.herokuapp.com');
+socket = io.connect('http://localhost:3000');
 
 Cylon.robot({
   connection: { name: 'beaglebone', adaptor: 'beaglebone' },

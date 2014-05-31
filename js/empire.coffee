@@ -1,24 +1,20 @@
----
----
+# ---
+# ---
 
-mapto = (x, start_min, start_max, stop_min, stop_max) ->
-  stop_min + (stop_max - stop_min) * ((x - start_min) / (start_max - start_min))
+SunCalc = require 'suncalc'
+window.marked = require 'marked'
 
-make_flash = (svg, point,start_width,start_height,end_width,end_height) ->
-  new_x = mapto(point.x, 0, start_width, 0, end_width)
-  new_y = mapto(point.y, 0, start_height, 0, end_height)
+# Returns a boolean of whether or not it is night time or not
+isDaytime = ->
+  now = new Date()
+  sunTimes = SunCalc.getTimes(new Date(), 40.74844, -73.985664)
 
-  f = svg.filter([Snap.filter.shadow(0,0,3,"#ECD93E"), Snap.filter.blur(2)])
-  x = svg.ellipse(new_x, new_y, 4, 4).attr({
-    stroke: '#ffffff',
-    'strokeWidth': 2,
-    fill: '#ffffff',
-    filter: f
-  });
-  setTimeout((-> x.remove()), 1000)
+  sunTimes.sunrise < now and now < sunTimes.sunset
 
 $ ->
+  if isDaytime() then $('body').addClass('daytime')
   window.observationDeck = document.getElementById('observation-deck')
+  $('#instructions').html marked($('#instructions').text())
 
   socket = io.connect('http://sk-empire-socket.herokuapp.com:80');
 
@@ -30,4 +26,3 @@ $ ->
   socket.on 'flash', (data) ->
     console.log data
     point =  data.points[0]
-    make_flash(s, point,data.width,data.height,deck_width,deck_height)

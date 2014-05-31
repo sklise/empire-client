@@ -3,21 +3,24 @@
 
 @import "normalize";
 @import "bourbon/bourbon";
-$max-width: 1300px;
+$max-width: 900px;
+$min-width: auto;
 @import "neat/neat";
+
+$dark:#313131;
+$light:#7DBABD;
 
 // Breakpoints
 $mobile: new-breakpoint(max-width 500px 4);
 
 body {
   font-family: "Merriweather";
-  background-color: #414141;
+  background-color: $dark;
   color: #F8F1E8;
 }
 
 body.daytime {
-  color: #414141;
-  background-color: #F8F1E8;
+  background-color: $light;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,31 +30,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 5em;
+  text-align: left
+}
+
+h2 {
+  font-size: 3.25em;
 }
 
 a {
   color: #2BA6E0;
 }
 
-#wrapper {
+.panel {
+  min-height: 100vh;
+  position: relative;
   @include outer-container();
 }
 
-#building {
-  @include span-columns(3);
-  height: 100%;
-  position: relative;
 
-  img {
-    max-width: 100%;
-  }
-
+.screen {
+  @include box-sizing(border-box);
+  padding: 2em 1em;
 }
 
-#content {
-  @include span-columns(9);
+#building {
+  background-image: url('../empire.svg');
+  background-repeat: no-repeat;
+  background-size: 600px auto;
+  background-position: 0px top;
+}
+
+#top {
+  @include span-columns(6);
+  @include shift(4);
   @include omega();
+
+  &.screen {
+    padding: 5em 0;
+  }
+}
+
+#panel-2 {
+  background: lighten($dark,20%);
+
+  .daytime & {
+    background: adjust-hue($light, 20deg);
+  }
 }
 
 #observation-deck {

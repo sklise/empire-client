@@ -4,7 +4,8 @@
   "description": "Web site for This Is The Empire State",
   "dependencies": {
     "gify": "^0.2.0",
-    "suncalc": "^1.5.2"
+    "suncalc": "^1.5.2",
+    "marked": "^0.3.2"
   },
   "devDependencies": {
     "coffeeify": "^0.6.0",
@@ -16,7 +17,7 @@
   },
   "scripts": {
     "watch": "watchify -t coffeeify js/empire.coffee -o js/bundle.js"
-  }
+  },
   "author": "Steve Klise",
   "license": "ISC",
   "homepage": "https://github.com/sklise/empire-client"
