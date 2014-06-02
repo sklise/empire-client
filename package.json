@@ -10,14 +10,17 @@
   },
   "devDependencies": {
     "coffeeify": "^0.6.0",
-    "browserify": "^4.1.6"
+    "browserify": "^4.1.6",
+    "watchify": "^0.10.2",
+    "uglify-js": "^2.4.13"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/sklise/empire-client.git"
   },
   "scripts": {
-    "watch": "watchify -t coffeeify js/empire.coffee -o js/bundle.js"
+    "watch": "watchify -t coffeeify js/empire.coffee -o js/bundle.js",
+    "minify": "uglifyjs js/bundle.js > js/bundle.min.js"
   },
   "author": "Steve Klise",
   "license": "ISC",
