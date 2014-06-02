@@ -54,11 +54,21 @@ a {
   padding: 2em 1em;
 }
 
+#empire-state-building-svg{
+  display: none;
+}
+
 #building {
-  background-image: url('../empire.svg');
-  background-repeat: no-repeat;
-  background-size: 600px auto;
-  background-position: 0px top;
+  // background-image: url('../empire.svg');
+  // background-repeat: no-repeat;
+  // background-size: 600px auto;
+  // background-position: 0px top;
+}
+
+#paper-canvas {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
 }
 
 #top {
@@ -77,14 +87,4 @@ a {
   .daytime & {
     background: adjust-hue($light, 20deg);
   }
-}
-
-#observation-deck {
-  display: block;
-  width: 33.3333333333%;
-  left: 33.3333333333%;
-  top: 25%;
-  height: 2.3809524%;
-  position: absolute;
-  background: transparent;
 }
