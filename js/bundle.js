@@ -13,20 +13,43 @@ isDaytime = function() {
 };
 
 $(function() {
-  var deck_height, deck_width, s, socket;
+  var canvas, observationCenter, socket;
   if (isDaytime()) {
     $('body').addClass('daytime');
   }
-  window.observationDeck = document.getElementById('observation-deck');
   $('#instructions').html(marked($('#instructions').text()));
   socket = io.connect('http://sk-empire-socket.herokuapp.com:80');
-  deck_width = $('#observation-deck').width();
-  deck_height = $('#observation-deck').height();
-  s = Snap("#observation-deck");
+  canvas = document.getElementById('paper-canvas');
+  paper.setup(canvas);
+  window.empire = paper.project.importSVG(document.getElementById("empire-state-building-svg"));
+  window.observationDeck;
+  observationCenter = {};
+  setTimeout((function() {
+    var observationDeck;
+    observationDeck = empire.children['observationdeck'];
+    return observationCenter = {
+      x: observationDeck.bounds.x + observationDeck.bounds.width / 2,
+      y: observationDeck.bounds.y + observationDeck.bounds.height / 2
+    };
+  }), 500);
+  paper.view.draw();
+  paper.view.onFrame = function() {
+    return paper.view.draw();
+  };
   return socket.on('flash', function(data) {
-    var point;
-    console.log(data);
-    return point = data.points[0];
+    var circle;
+    circle = paper.Shape.Circle({
+      center: [observationCenter.x, observationCenter.y],
+      radius: 1,
+      fillColor: 'white'
+    });
+    observationDeck.addChild(circle);
+    return circle.onFrame = function() {
+      this.radius += 1;
+      if (this.radius > 20) {
+        return this.remove();
+      }
+    };
   });
 });
 
