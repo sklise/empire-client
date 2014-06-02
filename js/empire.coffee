@@ -1,4 +1,5 @@
-SunCalc = require 'suncalc'
+window._ = require 'lodash'
+window.SunCalc = require 'suncalc'
 window.marked = require 'marked'
 
 # Returns a boolean of whether or not it is night time or not
