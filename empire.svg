@@ -2,25 +2,25 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="454.5px" height="1488.652px" viewBox="-112 -368.5 454.5 1488.652" enable-background="new -112 -368.5 454.5 1488.652"
+	 width="454.5px" height="1488.652px" viewBox="0 0 454.5 1488.652" enable-background="new 0 0 454.5 1488.652"
 	 xml:space="preserve">
-<polyline id="Spire" fill="#C5C2C6" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="81,-1.385 81,-19.385 
-	99,-73.385 99,-172.385 99,-190.385 108,-199.385 117,-361.385 126,-199.385 135,-190.385 135,-172.385 135,-73.385 153,-19.385 
-	153,-1.385 "/>
-<polyline fill="#C5C2C6" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="63,34.615 63,-1.385 171,-1.385 
-	171,34.615 "/>
-<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="-18,772.615 -18,691.615 252,691.615 
-	252,772.615 "/>
-<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="306,1019.152 306,848.152 -72,848.152 
-	-72,1019.152 "/>
-<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="45,1034.281 45,34.615 189,34.615 
-	189,1034.281 "/>
-<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="9,772.615 9,116.999 81,116.999 
-	81,691.615 153,691.615 153,116.999 225,116.999 225,772.615 "/>
-<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="-36,1019.771 -36,772.615 81,772.615 
-	81,1019.771 "/>
-<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="153,1019.771 153,772.615 270,772.615 
-	270,1019.771 "/>
-<polyline id="Base" fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="-99,1120.152 -99,1019.771 
-	333,1019.771 333,1120.152 "/>
+<polyline id="Spire" fill="#C5C2C6" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="191.25,362.615 
+	191.25,344.615 209.25,290.615 209.25,191.615 209.25,173.615 218.25,164.615 227.25,2.615 236.25,164.615 245.25,173.615 
+	245.25,191.615 245.25,290.615 263.25,344.615 263.25,362.615 "/>
+<polyline id="observationdeck" fill="#C5C2C6" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="173.25,398.615 
+	173.25,362.615 281.25,362.615 281.25,398.615 "/>
+<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="92.25,1136.615 92.25,1055.615 
+	362.25,1055.615 362.25,1136.615 "/>
+<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="416.25,1383.152 416.25,1212.152 
+	38.25,1212.152 38.25,1383.152 "/>
+<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="155.25,1398.281 155.25,398.615 
+	299.25,398.615 299.25,1398.281 "/>
+<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="119.25,1136.615 119.25,480.999 
+	191.25,480.999 191.25,1055.615 263.25,1055.615 263.25,480.999 335.25,480.999 335.25,1136.615 "/>
+<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="74.25,1383.771 74.25,1136.615 
+	191.25,1136.615 191.25,1383.771 "/>
+<polyline fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="263.25,1383.771 263.25,1136.615 
+	380.25,1136.615 380.25,1383.771 "/>
+<polyline id="Base" fill="#EEDEC3" stroke="#424242" stroke-width="2" stroke-miterlimit="10" points="11.25,1484.152 
+	11.25,1383.771 443.25,1383.771 443.25,1484.152 "/>
 </svg>
