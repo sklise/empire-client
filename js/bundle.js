@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var isDaytime;
+var centerOfItem, isDaytime, setTheme;
 
 window._ = require('lodash');
 
@@ -14,28 +14,35 @@ isDaytime = function() {
   return sunTimes.sunrise < now && now < sunTimes.sunset;
 };
 
-$(function() {
-  var canvas, observationCenter, socket;
+setTheme = function() {
   if (isDaytime()) {
-    $('body').addClass('daytime');
+    return $('body').addClass('daytime');
+  } else {
+    return $('body').removeClass('daytime');
   }
+};
+
+centerOfItem = function(item) {
+  return {
+    x: item.bounds.x + item.bounds.width / 2,
+    y: item.bounds.y + item.bounds.height / 2
+  };
+};
+
+$(function() {
+  var canvas, socket;
+  setTheme();
+  setTimeout(setTheme, 10000);
   $('#instructions').html(marked($('#instructions').text()));
   socket = io.connect('http://sk-empire-socket.herokuapp.com:80');
-  canvas = document.getElementById('paper-canvas');
+  canvas = $('#paper-canvas')[0];
   paper.setup(canvas);
-  window.empire = paper.project.importSVG(document.getElementById("empire-state-building-svg"));
-  window.observationDeck;
-  observationCenter = {};
-  setTimeout((function() {
-    window.observationDeck = empire.children['observationdeck'];
-    return observationCenter = {
-      x: observationDeck.bounds.x + observationDeck.bounds.width / 2,
-      y: observationDeck.bounds.y + observationDeck.bounds.height / 2
-    };
-  }), 500);
+  window.empire = paper.project.importSVG($("#empire-state-building-svg")[0]);
+  empire.position.x = 100;
   paper.view.draw();
   return socket.on('flash', function() {
-    var circle;
+    var circle, observationCenter;
+    observationCenter = centerOfItem(empire.children['observationdeck']);
     circle = paper.Shape.Circle({
       center: [observationCenter.x, observationCenter.y],
       radius: 1,

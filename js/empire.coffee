@@ -9,34 +9,35 @@ isDaytime = ->
 
   sunTimes.sunrise < now and now < sunTimes.sunset
 
+setTheme = ->
+  if isDaytime() then $('body').addClass('daytime') else $('body').removeClass('daytime')
+
+centerOfItem = (item) ->
+  {
+    x: item.bounds.x + item.bounds.width/2
+    y: item.bounds.y + item.bounds.height/2
+  }
+
 $ ->
-  if isDaytime() then $('body').addClass('daytime')
+  # Set the theme initially
+  setTheme()
+  # And then check every 10 minutes
+  setTimeout(setTheme,10000)
 
   $('#instructions').html marked($('#instructions').text())
 
   socket = io.connect('http://sk-empire-socket.herokuapp.com:80');
 
-  canvas = document.getElementById('paper-canvas')
+  # Setup Paper
+  canvas = $('#paper-canvas')[0]
   paper.setup(canvas)
-  window.empire = paper.project.importSVG(document.getElementById("empire-state-building-svg"))
-
-  window.observationDeck
-  observationCenter = {}
-
-  setTimeout((->
-    window.observationDeck = empire.children['observationdeck']
-
-    observationCenter = {
-      x: observationDeck.bounds.x + observationDeck.bounds.width/2
-      y: observationDeck.bounds.y + observationDeck.bounds.height/2
-    }
-  ),500)
-
+  window.empire = paper.project.importSVG($("#empire-state-building-svg")[0])
+  empire.position.x = 100
   paper.view.draw()
 
-  # paper.view.onFrame = -> paper.view.draw()
-
   socket.on 'flash', ->
+    observationCenter = centerOfItem empire.children['observationdeck']
+
     circle = paper.Shape.Circle
       center: [observationCenter.x,observationCenter.y]
       radius: 1
