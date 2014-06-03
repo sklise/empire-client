@@ -24,7 +24,7 @@ $ ->
   observationCenter = {}
 
   setTimeout((->
-    observationDeck = empire.children['observationdeck']
+    window.observationDeck = empire.children['observationdeck']
 
     observationCenter = {
       x: observationDeck.bounds.x + observationDeck.bounds.width/2
@@ -34,18 +34,28 @@ $ ->
 
   paper.view.draw()
 
-  paper.view.onFrame = -> paper.view.draw()
+  # paper.view.onFrame = -> paper.view.draw()
 
-  socket.on 'flash', (data) ->
-
+  socket.on 'flash', ->
     circle = paper.Shape.Circle
       center: [observationCenter.x,observationCenter.y]
       radius: 1
-      fillColor: 'white'
+      fillColor: 'rgba(255,255,255,0.8)'
+      shrinking: false
+      shadowColor: 'rgba(255,255,255,0.8)'
+      shadowBlur: 30
 
-    observationDeck.addChild(circle)
+    empire.addChild(circle)
 
     circle.onFrame = ->
-      @radius += 1
-      if @radius > 20
-        @remove()
+      if @shrinking
+        @shadowBlur -= 2
+        @radius -= 2
+        if @radius < 8
+          @remove()
+      else
+        @radius += 1
+        if @radius > 8
+          @shadowBlur = 60
+        if @radius > 12
+          @shrinking = true

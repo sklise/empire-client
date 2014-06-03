@@ -27,29 +27,39 @@ $(function() {
   window.observationDeck;
   observationCenter = {};
   setTimeout((function() {
-    var observationDeck;
-    observationDeck = empire.children['observationdeck'];
+    window.observationDeck = empire.children['observationdeck'];
     return observationCenter = {
       x: observationDeck.bounds.x + observationDeck.bounds.width / 2,
       y: observationDeck.bounds.y + observationDeck.bounds.height / 2
     };
   }), 500);
   paper.view.draw();
-  paper.view.onFrame = function() {
-    return paper.view.draw();
-  };
-  return socket.on('flash', function(data) {
+  return socket.on('flash', function() {
     var circle;
     circle = paper.Shape.Circle({
       center: [observationCenter.x, observationCenter.y],
       radius: 1,
-      fillColor: 'white'
+      fillColor: 'rgba(255,255,255,0.8)',
+      shrinking: false,
+      shadowColor: 'rgba(255,255,255,0.8)',
+      shadowBlur: 30
     });
-    observationDeck.addChild(circle);
+    empire.addChild(circle);
     return circle.onFrame = function() {
-      this.radius += 1;
-      if (this.radius > 20) {
-        return this.remove();
+      if (this.shrinking) {
+        this.shadowBlur -= 2;
+        this.radius -= 2;
+        if (this.radius < 8) {
+          return this.remove();
+        }
+      } else {
+        this.radius += 1;
+        if (this.radius > 8) {
+          this.shadowBlur = 60;
+        }
+        if (this.radius > 12) {
+          return this.shrinking = true;
+        }
       }
     };
   });
