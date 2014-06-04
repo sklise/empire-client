@@ -38,7 +38,6 @@ $(function() {
   canvas = $('#paper-canvas')[0];
   paper.setup(canvas);
   window.empire = paper.project.importSVG($("#empire-state-building-svg")[0]);
-  empire.position.x = 100;
   paper.view.draw();
   return socket.on('flash', function() {
     var circle, observationCenter;

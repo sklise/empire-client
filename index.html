@@ -42,9 +42,11 @@
     <div id="top" class="screen">
       <h1>EMPIRE</h1>
 
-      <p>The Empire State Building has been a central part of the New York City skyline since the 1930s. From outside of New York, the city is the building. From inside, so many other buildings, places, streets, events and people become the essence of the city.</p>
+      <div class="short-description">
+        <p>The observation deck at the Empire State Building is open until 2AM every day of the year. And each night pictures are taken of the city the building looks over. The flashes from many of these pictures can be seen from all around the city.</p>
 
-
+        <p><em>Empire</em> detects the camera flashes and sends them here to this site. The signals of the camera flashes can also be sent to micro-controllers to light up replica Empire State Buildings.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -64,6 +66,8 @@
     <div class="screen" id="instructions">
 ## Create Your Own
 
+By combining the Empire State Building Lego model with some electronics you can build a physical instance of _Empire_. Some experience with electronics and programming is advised.
+
 ### Materials
 
 - 1x [Beaglebone Black] a credit-card sized computer with hookups for electronics
@@ -80,13 +84,56 @@
 [Solderless Breadboard]: https://www.sparkfun.com/products/12047
 [330Ohm Resistor]: https://www.sparkfun.com/products/11507
 
+### Instructions
+
+1. Assemble the Lego set as instructed up to step **22**. At step **22**, rotate the 1x piece a quarter turn so the hole is visible. Then finish the rest of the set.
+
+  ![](http://placehold.it/350x150)
+
+2. Set up your Beaglebone. This gets a bit involved, here are a few tutorials to help you get your Beaglebone running:
+
+  - [BeagleBone Black Getting Started Guide](http://beagleboard.org/Getting+Started)
+  - [Installing an operating system to SD Card with the BeagleBone Black](https://learn.adafruit.com/beaglebone-black-installing-operating-systems?view=all)
+
+  Steps 3,4 and 7 require the Beaglebone to be connected to your computer via USB.
+
+3. Download the code from Github onto the Beaglebone. From Terminal run:
+
+        ssh root@192.168.7.2
+        git clone https://github.com/sklise/empire-beaglebone.git
+
+4. Install the dependencies:
+        cd empire-beaglebone
+        npm install
+
+5. Wire up the Beaglebone and LED. Leave enough wire between the LED and the Beaglebone to reach the Lego model.
+
+  ![](http://placehold.it/350x150)
+
+6. Insert the LED into the opening at the top of the Empire State Building Lego Model
+
+  ![](http://placehold.it/350x150)
+
+7. Start the program running on the Beaglebone by running:
+
+        node index.js
+
+  At this point your LED should be blinking whenever the illustration at the top of this page blinks.
+
     </div>
   </div>
 </div>
 
     <div class="panel" id="footer">
       <div class="screen">
-        <a href="http://turbulence.org">Turbulence</a>
+        <h4>Empire</h4>
+        <p>2014 - <a href="http://skli.se">Steve Klise</a></p>
+
+        <p>Commissioned by <a href="http://turbulence.org">Turbulence.org</a></p>
+
+        <p>Steve Klise is a programmer and artist living in Brooklyn, New York. He helps spread knowledge and foster learning and teaching with his work and draw attention to small moments in our collected interactions with his art. Steve is an alum of New York University’s Interactive Telecommunications Program and works for O’Reilly Media.</p>
+
+        <p><strong>Special Thanks:</strong> Amelia Hancock, Marianne Petit, Helen Thorington, Zannah Marsh, Craig Protzel, Stepan Bolatin and Kyle McDonald.</p>
       </div>
     </div>
 </body>
