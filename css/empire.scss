@@ -9,24 +9,26 @@ $min-width: auto;
 
 $dark:#313131;
 $light:#7DBABD;
+$blue: #2BA6E0;
 
 // Breakpoints
 $mobile: new-breakpoint(max-width 500px 4);
 
 body {
-  font-family: "Georgia";
+  font-family: 'Archer A', 'Archer B';
+  font-weight: 500;
   background-color: $dark;
   color: #F8F1E8;
-  font-size: 100%;
+  font-size: 110%;
   line-height: 1.5em;
 }
 
-body.daytime {
-  background-color: $light;
+pre, code {
+  font-family: Inconsolata, monospace;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "League Gothic";
+  font-weight: 800;
   color: #B83234;
 }
 
@@ -45,11 +47,20 @@ h4 {
 }
 
 a {
-  color: #2BA6E0;
+  color: $blue;
+}
+
+body.daytime {
+  background-color: $light;
+  color: #fafafa;
+
+  a {
+    color: #0091DA;
+  }
 }
 
 .short-description {
-  font-size: 1.3em;
+  font-size: 1.1em;
   line-height: 1.4em;
 }
 
@@ -80,7 +91,7 @@ a {
   @include omega();
 
   &.screen {
-    padding: 10em 0 0;
+    padding: 8em 0 0;
   }
 }
 
@@ -88,6 +99,6 @@ a {
   border-bottom: 2px solid lighten($dark,20%);
 
   .daytime & {
-
+    border-bottom: 2px solid darken($light,20%);
   }
 }
