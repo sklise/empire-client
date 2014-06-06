@@ -102,3 +102,13 @@ body.daytime {
     border-bottom: 2px solid darken($light,20%);
   }
 }
+
+#instructions {
+  img {
+    display: block;
+    position: relative;
+    margin: 1em auto;
+    max-width: 90%;
+    max-height: 700px;
+  }
+}
