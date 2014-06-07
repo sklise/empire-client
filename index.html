@@ -6,8 +6,8 @@
   <script src="http://sk-empire-socket.herokuapp.com/socket.io/socket.io.js"></script>
   <script src="js/jquery.min.js" type="text/javascript"></script>
   <script src="js/paper-core.js" type="text/javascript"></script>
-
   <script src="js/bundle.js" type="text/javascript"></script>
+
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6800492/674884/css/fonts.css" />
   <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/empire.css"/>
@@ -43,7 +43,13 @@
     <div id="top" class="screen">
       <h1>EMPIRE STATE</h1>
 
+      <div class="daytime-disclaimer">
+        <p>The sun is up right now in New York, there will most likely be no flashes until the sun goes down at <span id="sunset"></span>.</p>
+      </div>
+
       <div class="short-description">
+        <p><em>Transmitting camera flashes from the Empire State Building to the browser in real time.</em></p>
+
         <p>The observation deck at the Empire State Building is open until 2AM every day of the year. And each night pictures are taken of the city the building looks over. The flashes from many of these pictures can be seen from all around the city.</p>
 
         <p><em>Empire State</em> detects the camera flashes and sends them here to this site. The signals of the camera flashes can also be sent to micro-controllers to light up replica Empire State Buildings.</p>

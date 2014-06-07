@@ -51,12 +51,25 @@ a {
   color: $blue;
 }
 
+.daytime-disclaimer {
+  display: none;
+}
+
 body.daytime {
   background-color: $light;
   color: #fafafa;
 
   a {
     color: #0091DA;
+  }
+
+  .daytime-disclaimer {
+    display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: darken($light,10%);
+    background-color: #D1CF9A;
+    font-style: italic;
   }
 }
 

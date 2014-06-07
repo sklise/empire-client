@@ -1,16 +1,25 @@
-window._ = require 'lodash'
-window.SunCalc = require 'suncalc'
-window.marked = require 'marked'
+_ = require 'lodash'
+moment = require 'moment'
+SunCalc = require 'suncalc'
+marked = require 'marked'
 
 # Returns a boolean of whether or not it is night time or not
 isDaytime = ->
   now = new Date()
   sunTimes = SunCalc.getTimes(new Date(), 40.74844, -73.985664)
 
-  sunTimes.sunrise < now and now < sunTimes.sunset
+  {
+    test: sunTimes.sunrise < now and now < sunTimes.sunset
+    sunset: sunTimes.sunset
+  }
 
 setTheme = ->
-  if isDaytime() then $('body').addClass('daytime') else $('body').removeClass('daytime')
+  sunsets = isDaytime()
+  if sunsets.test
+    $('body').addClass('daytime')
+    $('#sunset').text moment(sunsets.sunset).format("h:mm a")
+  else
+    $('body').removeClass('daytime')
 
 centerOfItem = (item) ->
   {
