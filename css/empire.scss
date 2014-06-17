@@ -19,8 +19,8 @@ body {
   font-weight: 500;
   background-color: $dark;
   color: #F8F1E8;
-  font-size: 110%;
-  line-height: 1.5em;
+  font-size: 18px;
+  line-height: 27px;
 }
 
 pre, code {
@@ -28,14 +28,20 @@ pre, code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
   color: #B83234;
+  font-weight: 800;
+  line-height: 1em;
 }
 
 h1 {
   font-size: 5em;
   text-align: left;
   line-height: 1em;
+
+  @include media($mobile) {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
 }
 
 h2 {
@@ -49,6 +55,10 @@ h4 {
 
 a {
   color: $blue;
+}
+
+ol, ul {
+  padding-left: 20px;
 }
 
 .daytime-disclaimer {
@@ -73,20 +83,20 @@ body.daytime {
   }
 }
 
-.short-description {
-  font-size: 1.1em;
-  line-height: 1.4em;
-}
-
 .panel {
   min-height: 100vh;
   position: relative;
   @include outer-container();
+  @include media($mobile) {
+    width: 95%;
+    min-height: 700px;
+  }
 }
 
 .screen {
   @include box-sizing(border-box);
-  padding: 2em 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 #empire-state-building-svg {
@@ -98,6 +108,7 @@ body.daytime {
   left: 0;
   height: 100vh;
   position: absolute;
+  z-index: -1;
 }
 
 #top {
@@ -107,6 +118,20 @@ body.daytime {
 
   &.screen {
     padding: 5em 0 0;
+  }
+
+  .short-description {
+    font-size: 1.1em;
+    line-height: 1.4em;
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+    @include shift(0);
+
+    &.screen {
+      padding-top: 0;
+    }
   }
 }
 
