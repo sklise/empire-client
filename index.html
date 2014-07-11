@@ -108,10 +108,10 @@ By combining the Empire State Building Lego model with some electronics you can 
 3. Download the code from Github onto the Beaglebone. From Terminal run:
 
         ssh root@192.168.7.2
-        git clone https://github.com/sklise/empire-beaglebone.git
+        git clone https://github.com/sklise/empire-beaglebone.git /var/lib/cloud9/autorun/
 
 4. Install the dependencies:
-        cd empire-beaglebone
+        cd /var/lib/cloud9/autorun
         npm install
 
 5. Wire up the Beaglebone and LED. Leave enough wire between the LED and the Beaglebone to reach the Lego model.
@@ -123,9 +123,7 @@ By combining the Empire State Building Lego model with some electronics you can 
   ![](images/finished-back.jpg)
   ![](images/finished-front.jpg)
 
-7. Start the program running on the Beaglebone by running:
-
-        node index.js
+7. Eject the Beaglebone from your computer and plug it back in. The script should start automatically.
 
   At this point your LED should be blinking whenever the illustration at the top of this page blinks.
     </div>
