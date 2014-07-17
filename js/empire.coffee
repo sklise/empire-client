@@ -30,8 +30,8 @@ centerOfItem = (item) ->
 $ ->
   # Set the theme initially
   setTheme()
-  # And then check every 10 minutes
-  setTimeout(setTheme,10000)
+  # And then check every 1 minute
+  setTimeout(setTheme,1000)
 
   $('#instructions').html marked($('#instructions').text())
 

@@ -40,7 +40,7 @@ centerOfItem = function(item) {
 $(function() {
   var canvas, socket;
   setTheme();
-  setTimeout(setTheme, 10000);
+  setTimeout(setTheme, 1000);
   $('#instructions').html(marked($('#instructions').text()));
   socket = io.connect('http://sk-empire-socket.herokuapp.com:80');
   canvas = $('#paper-canvas')[0];
